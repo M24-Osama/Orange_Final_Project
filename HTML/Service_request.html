@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../CSS/Index.Css" />
+    <link rel="stylesheet" href="../CSS/Slider.css" />
+    <link rel="stylesheet" href="../CSS/serves_info.Css" />
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcG6ZRPG7IxaFAFbDDj62lhVnBkNtPWJ0&callback=initMap"
+      async
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="flex_column width_100">
+      <div class="server_info_container">
+        <div class="server_info">
+          <div class="server_info_right">
+            <div class="card_services_text">
+              <h3 class="orange Suggestions">Job details</h3>
+            </div>
+
+            <div class="job_details">
+              <div>
+                <h3 class="Suggestions">Make door</h3>
+
+                <p>
+                  t looks like you're trying to display an image in a Razor view
+                  in your ASP.NET project, and you want to link to the image
+                  located at t looks like you're trying to display an image in a
+                  Razor view in your ASP.NET project, and you want to link to
+                  the image located att looks like you're trying to display an
+                  image in a Razor view in your ASP.NET project, and you want to
+                  link to the image located at
+                </p>
+              </div>
+              <div>
+                <p>
+                  <i class="bi bi-person icon"></i>
+                  Service Provider: Osama
+                </p>
+                <p>
+                  <i class="bi bi-hammer icon"></i>
+                  Category: Blacksmiths
+                </p>
+                <p>
+                  <i class="bi bi-cash icon"></i>
+                  Price: 5JD
+                </p>
+              </div>
+              <br />
+            </div>
+          </div>
+          <div class="server_info_right">
+            <div>
+              <br />
+              <h3 class="orange Suggestions">Service Request</h3>
+              <div class="modal-content">
+                <div class="modal-body">
+                  <!-- Form Start -->
+                  <form>
+                    <!-- Title input -->
+                    <div class="mb-3">
+                      <label for="serviceName" class="form-label">Title</label>
+                      <input
+                        type="text"
+                        id="serviceName"
+                        placeholder="Enter title"
+                      />
+                    </div>
+                    <!-- Description input -->
+                    <div class="mb-3">
+                      <label for="serviceDesc" class="form-label"
+                        >Description</label
+                      >
+                      <textarea
+                        id="serviceDesc"
+                        rows="3"
+                        placeholder="Enter description"
+                      ></textarea>
+                    </div>
+
+                    <!-- Category input -->
+                    <div class="flex_row_left w-100">
+                      <div class="w-25">
+                        <label for="serviceDate" class="form-label">Date</label>
+                        <input type="date" id="serviceDate" />
+                      </div>
+
+                      <div class="w-25">
+                        <label for="serviceTime" class="form-label">Time</label>
+                        <input type="time" id="serviceTime" />
+                      </div>
+                    </div>
+                    <div class="mb-3 w-50">
+                      <label for="serviceNumber" class="form-label"
+                        >Price</label
+                      >
+                      <input
+                        type="number"
+                        id="serviceNumber"
+                        placeholder="Enter Price"
+                        min="1"
+                      />
+                    </div>
+
+                    <div id="locationPopup" class="mb-3">
+                      <div class="popup-content">
+                        <label for="serviceDate" class="form-label"
+                          >Location</label
+                        >
+                        <div class="flex_row_left">
+                          <input
+                            id="searchLocation"
+                            type="text"
+                            placeholder="Search for a location..."
+                          />
+                          <button
+                            class="server_request"
+                            type="button"
+                            onclick="geocodeAddress()"
+                          >
+                            Search
+                          </button>
+                        </div>
+
+                        <div id="map"></div>
+                      </div>
+                    </div>
+                  </form>
+                  <!-- Form End -->
+                </div>
+                <div class="modal-footer">
+                  <!-- Add button -->
+                  <button type="button" class="server_request">
+                    Server request
+                  </button>
+                </div>
+              </div>
+            </div>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Get current date and time
+      const now = new Date();
+
+      // Format date to YYYY-MM-DD
+      const today = now.toISOString().split("T")[0];
+      document.getElementById("serviceDate").value = today;
+      document.getElementById("serviceDate").min = today;
+
+      // Format time to HH:MM
+      const currentTime = now.toTimeString().split(":");
+      const time = `${currentTime[0]}:${currentTime[1]}`; // HH:MM
+      document.getElementById("serviceTime").value = time;
+    </script>
+    <script>
+      // Google Maps Code
+      let map;
+      let marker1;
+      let geocoder;
+      let markerLocation;
+      let locationName;
+
+      function initMap() {
+        const initialLocation = { lat: 31.963158, lng: 35.930359 }; // Amman/Jordan
+        geocoder = new google.maps.Geocoder();
+
+        map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 10,
+          center: initialLocation,
+        });
+
+        map.addListener("click", (event) => {
+          const clickedLocation = event.latLng;
+
+          if (marker1) {
+            marker1.setPosition(clickedLocation);
+          } else {
+            marker1 = new google.maps.Marker({
+              position: clickedLocation,
+              map: map,
+              draggable: true,
+            });
+          }
+
+          markerLocation = {
+            lat: clickedLocation.lat(),
+            lng: clickedLocation.lng(),
+          };
+
+          // Reverse Geocode the clicked location
+          geocoder.geocode({ location: markerLocation }, (results, status) => {
+            if (status === "OK") {
+              if (results[0]) {
+                locationName = results[0].address_components;
+                fullAddress = results[0].formatted_address;
+                let city = "";
+                let country = "";
+
+                locationName.forEach((component) => {
+                  if (component.types.includes("locality")) {
+                    city = component.long_name;
+                  }
+                  if (component.types.includes("country")) {
+                    country = component.long_name;
+                  }
+                });
+
+                locationDetails = {
+                  city: city,
+                  country: country,
+                };
+              } else {
+                console.log("No results found");
+              }
+            } else {
+              console.log("Geocoder failed due to: " + status);
+            }
+          });
+        });
+      }
+
+      function geocodeAddress() {
+        const address = document.getElementById("searchLocation").value;
+        console.log(address);
+        geocoder.geocode({ address: address }, (results, status) => {
+          if (status === "OK") {
+            console.log(results);
+            map.setCenter(results[0].geometry.location);
+            if (marker1) {
+              marker1.setPosition(results[0].geometry.location);
+            } else {
+              marker1 = new google.maps.Marker({
+                position: results[0].geometry.location,
+                map: map,
+              });
+            }
+
+            map.setZoom(15);
+            markerLocation = {
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng(),
+            };
+
+            locationName = results[0].address_components;
+            let city = "";
+            let country = "";
+
+            locationName.forEach((component) => {
+              if (component.types.includes("locality")) {
+                city = component.long_name;
+              }
+              if (component.types.includes("country")) {
+                country = component.long_name;
+              }
+            });
+
+            locationDetails = {
+              city: city,
+              country: country,
+            };
+          } else {
+            alert(
+              "Geocode was not successful for the following reason: " + status
+            );
+          }
+        });
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

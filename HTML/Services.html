@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../CSS/Index.Css" />
+    <link rel="stylesheet" href="../CSS/Nav.css" />
+    <link rel="stylesheet" href="../CSS/Footer.Css" />
+    <link rel="stylesheet" href="../CSS/Services.Css" />
+  </head>
+  <body>
+    <i id="fixedButton" class="bi bi-arrow-up-square-fill orange hidden"></i>
+    <nav id="navbar">
+      <div class="topnav" id="myTopnav">
+        <div class="div_left">
+          <div>
+            <a class="logo" style="padding: 0px"
+              ><img src="../image/logo.png" alt=""
+            /></a>
+          </div>
+          <div class="div_center">
+            <a href="#home">Home</a>
+            <a href="#home">Category</a>
+            <a href="#about">About us</a>
+          </div>
+        </div>
+        <div class="div_rghit">
+          <a href="#contact"><i class="bi bi-chat-fill"></i></a>
+          <a href="#contact"><i class="bi bi-bell-fill"></i></a>
+          <a href="#news"><i class="bi bi-person-circle"></i></a>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="bi bi-list" style="font-size: x-large"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <section class="flex_column width_100">
+      <br />
+      <div class="flex_space_between width_90">
+        <div>
+          <h2 class="orange">Services</h2>
+          <p>We offer a wide range of services</p>
+        </div>
+
+        <div class="filter filter_heading">
+          <button id="filterButton" class="filterButton">
+            <i class="bi bi-filter"></i> Filter
+          </button>
+        </div>
+      </div>
+
+      <br />
+    </section>
+    <section class="flex_column width_100">
+      <div class="grid_serves width_90">
+        <div id="filter">
+          <div id="menu" class="menu">
+            <div>
+              <h3>Filter</h3>
+              <form action="">
+                <div class="search-container">
+                  <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Search..."
+                  />
+                </div>
+
+                <p>Price:</p>
+                <div class="range-slider">
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="50"
+                    class="slider"
+                    id="myRange"
+                  />
+                  <div class="tooltip" id="tooltip">50</div>
+                </div>
+
+                <p>Service rating:</p>
+                <div class="rating">
+                  <div class="rating-item">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5" title="5 stars">
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
+                      <span> 5 or more</span>
+                    </label>
+                  </div>
+
+                  <div class="rating-item">
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4" title="4 stars">
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                      </div>
+                      <span> 4 or more</span>
+                    </label>
+                  </div>
+
+                  <div class="rating-item">
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3" title="3 stars">
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                      </div>
+                      <span> 3 or more</span>
+                    </label>
+                  </div>
+
+                  <div class="rating-item">
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2" title="2 stars">
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                      </div>
+                      <span> 2 or more</span>
+                    </label>
+                  </div>
+
+                  <div class="rating-item">
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label for="star1" title="1 star">
+                      <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                      </div>
+                      <span> 1 or more</span>
+                    </label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="main">
+          <a href="../HTML/serves_info.html" class="flex_culomn card_services">
+            <img src="../image/category/Blacksmiths.jpg" alt="" />
+            <div class="card_services_text">
+              <h3>Blacksmiths</h3>
+              <p class="category">category/category</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i
+                ><i class="bi bi-star"></i>
+              </div>
+              <p>Price : 5JD</p>
+            </div>
+          </a>
+          <div class="flex_culomn card_services">
+            <img src="../image/category/Blacksmiths.jpg" alt="" />
+            <div class="card_services_text">
+              <h3>Blacksmiths</h3>
+              <p class="category">category/category</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i
+                ><i class="bi bi-star"></i>
+              </div>
+              <p>Price : 5JD</p>
+            </div>
+          </div>
+          <div class="flex_culomn card_services">
+            <img src="../image/category/Blacksmiths.jpg" alt="" />
+            <div class="card_services_text">
+              <h3>Blacksmiths</h3>
+              <p class="category">category/category</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                ><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i
+                ><i class="bi bi-star"></i>
+              </div>
+              <p>Price : 5JD</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br />
+
+    <footer>
+      <div class="flex_column width_100 footer">
+        <br />
+
+        <div class="footer_flex width_90">
+          <div class="flex_column_left footer_left">
+            <div class="flex_row_left">
+              <!-- <div class="logo_footer" style="padding: 0px">
+                  <img src="../image/logo.png" alt="" />
+                </div> -->
+              <span class="footer_text_logo">3amaal</span>
+            </div>
+            <p>
+              Welcome to 3amaal, your trusted platform for finding skilled
+              workers and service providers. Whether it's home maintenance,
+              cleaning, or repairs, we've got you covered. Easily connect with
+              local professionals, ensuring quality work at fair prices.
+              Discover a range of services and get the help you need quickly and
+              efficiently with 3amaal!
+            </p>
+          </div>
+          <div class="flex_column_left footer_center">
+            <div class="flex_row_left">
+              <span class="footer_text_logo">Category</span>
+            </div>
+            <div></div>
+            <div class="flex_Category">
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+            </div>
+          </div>
+          <div class="flex_column_left footer_center">
+            <div class="flex_row_left">
+              <span class="footer_text_logo">Category</span>
+            </div>
+            <div class="flex_Category">
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+              <a href="#Blacksmiths"><span> Blacksmiths </span></a>
+            </div>
+          </div>
+          <div class="flex_column_left footer_right">
+            <div class="flex_row_left">
+              <span class="footer_text_logo">Contact us</span>
+            </div>
+            <div class="flex_column_left icon_footer_left">
+              <div>
+                <i class="bi bi-telephone-fill orange"></i
+                ><span>0792961828</span>
+              </div>
+              <div>
+                <i class="bi bi-envelope-fill orange"></i
+                ><span>3amaal@gmail.com</span>
+              </div>
+              <div class="flex_space_between width_100 icon_footer">
+                <span class="footer_text_fallow">Follow us: </span>
+                <a href="https://www.facebook.com" target="_blank">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                  <i class="bi bi-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex_row">
+        <p class="orange">Copyright © 2024 3amaal</p>
+      </div>
+    </footer>
+
+    <script src="../JS/Slider_price.js"></script>
+    <script src="../JS/Nav.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButton = document.getElementById("filterButton");
+        if (filterButton) {
+          filterButton.onclick = function () {
+            document.getElementById("filter").className = "modal";
+            document.getElementById("menu").style.display = "flex";
+
+            const filterModal = new bootstrap.Modal(
+              document.getElementById("filter")
+            );
+            filterModal.show();
+          };
+        } else {
+          console.error("Element with ID 'filterButton' not found");
+        }
+      });
+    </script>
+  </body>
+</html>

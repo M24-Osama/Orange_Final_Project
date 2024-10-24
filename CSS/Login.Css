@@ -1,0 +1,143 @@
+.login {
+  background-color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-image: url("../image/top-view-steel-hammer-with-other-construction-elements-tools\ \(1\).jpg");
+  background-size: cover;
+  background-position: 90%;
+}
+.signUp {
+  background-color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: url("../image/top-view-steel-hammer-with-other-construction-elements-tools\ \(1\).jpg");
+  background-size: cover;
+  background-position: 90%;
+  height: 140vh;
+}
+.signUp form {
+  width: 40%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6), 5px 5px 20px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+  margin-top: 130px;
+  margin-bottom: 130px;
+}
+.login form {
+  width: 35%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6), 5px 5px 20px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+}
+form * {
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+form h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 30px;
+  font-size: 14px;
+  padding: 0 5px;
+}
+input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+}
+::placeholder {
+  color: #e5e5e5;
+}
+input:hover {
+  background-color: rgba(255, 255, 255, 0.09);
+  border: 1px solid #ffffff;
+}
+input:focus {
+  background-color: rgba(255, 255, 255, 0.09);
+  border: 2px solid #ffffff;
+}
+.button {
+  margin-top: 30px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5), 0 0px 0px rgba(0, 0, 0, 0.5);
+  transform: scale(1);
+}
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5), 0 0px 30px rgba(0, 0, 0, 0.5);
+  transform: scale(1.01);
+}
+.fb {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.27);
+  color: #eaf0fb;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 18px;
+  padding: 15px 0;
+  border-radius: 5px;
+}
+.fb a {
+  color: #080710;
+  text-decoration: none;
+  padding-left: 5px;
+  font-weight: 600;
+}
+.fb a:hover {
+  text-decoration: underline;
+  color: rgb(8, 7, 16, 0.7);
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Styles for tablets */
+  form {
+    width: 70%;
+  }
+}
+@media (max-width: 767px) {
+  /* Styles for large smartphones */
+  form {
+    width: 95%;
+    padding: 20px 10px;
+  }
+}
